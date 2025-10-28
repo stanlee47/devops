@@ -4,17 +4,14 @@ FROM node:16-alpine as builder
 # Set the working directory to /app
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
+# Bundle app source
+COPY . .
 
 # Install any needed packages
 RUN npm install
 
-# Bundle app source
-COPY . .
-
 # Build the app
-RUN npm run build
+RUN npm run build --verbose
 
 # Use a lightweight Nginx image to serve the app
 FROM nginx:1.21.3-alpine
