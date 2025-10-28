@@ -1,0 +1,8 @@
+---
+- hosts: local
+  become: yes
+  tasks:
+    - name: Deploy TaskFlow application
+      k8s:
+        state: present
+        src: ../k8s/
