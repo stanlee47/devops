@@ -15,7 +15,7 @@ spec:
         app: taskflow
     spec:
       containers:
-      - name: taskflow
-        image: <your-dockerhub-username>/taskflow-project:latest
-        ports:
-        - containerPort: 80
+        - name: taskflow
+          image: stanlykurian/taskflow-project:latest
+          ports:
+            - containerPort: 80
