@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as a parent image
-FROM node:16-alpine as builder
+FROM node:16 as builder
 
 # Set the working directory to /app
 WORKDIR /app
@@ -8,6 +8,7 @@ WORKDIR /app
 COPY . .
 
 # Install any needed packages
+ARG CACHE_BUST=1
 RUN npm install
 
 # Build the app
