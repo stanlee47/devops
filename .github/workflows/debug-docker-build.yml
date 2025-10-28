@@ -1,0 +1,15 @@
+name: Debug Docker Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  debug-build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build Docker image with verbose output
+      run: docker build . --no-cache --progress=plain --build-arg CACHE_BUST=$(date +%s)
